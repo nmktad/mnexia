@@ -2,6 +2,18 @@ import type { MetadataRoute } from "next";
 
 export default [
   {
+    src: "/assets/web/web-app-manifest-192x192.png",
+    sizes: "192x192",
+    type: "image/png",
+    purpose: "maskable",
+  },
+  {
+    src: "/assets/web/web-app-manifest-512x512.png",
+    sizes: "512x512",
+    type: "image/png",
+    purpose: "maskable",
+  },
+  {
     src: "/assets/windows11/SmallTile.scale-100.png",
     sizes: "71x71",
     type: "image/png",
