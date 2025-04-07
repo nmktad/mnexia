@@ -14,7 +14,6 @@ export const metadata: Metadata = {
   appleWebApp: {
     title: "Mnexia",
   },
-  manifest: "/manifest.webmanifest",
 };
 
 export default function RootLayout({
