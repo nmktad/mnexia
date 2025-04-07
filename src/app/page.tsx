@@ -60,7 +60,6 @@ function InstallPrompt() {
 
   return (
     <div>
-      <h3>Install App</h3>
       <InstallButton />
       {isIOS && (
         <p>
