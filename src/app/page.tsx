@@ -14,7 +14,10 @@ function InstallButton() {
       setIsInstallable(true);
     };
 
-    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+    window.addEventListener("beforeinstallprompt", (e) => {
+      console.log("🔥 Install prompt fired", e);
+      handleBeforeInstallPrompt(e);
+    });
 
     return () =>
       window.removeEventListener(
