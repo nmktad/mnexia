@@ -36,9 +36,7 @@ function InstallButton() {
   return (
     <>
       {isInstallable && (
-        <button onClick={handleInstallClick} className="install-button">
-          Install App
-        </button>
+        <Button onClick={handleInstallClick}>Install App</Button>
       )}
     </>
   );
