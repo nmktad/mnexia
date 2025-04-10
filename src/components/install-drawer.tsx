@@ -64,26 +64,19 @@ function InstallDrawer({
   if (!installable) return null;
 
   const [defaultOpen, setDefaultOpen] = useState(true);
-  const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
     setDefaultOpen(
       localStorage.getItem("install-drawer-shown") != "displayed" &&
         !window.matchMedia("(display-mode: standalone)").matches,
     );
-    setDisabled(
-      typeof window === "undefined" ||
-        window.matchMedia("(display-mode: standalone)").matches,
-    );
   }, []);
 
   return (
-    <Drawer defaultOpen={defaultOpen && installable} open={installable}>
-      <DrawerTrigger asChild>
-        <Button variant="outline" disabled={disabled && !installable}>
-          Open Drawer
-        </Button>
-      </DrawerTrigger>
+    <Drawer
+      defaultOpen={defaultOpen && installable}
+      open={installable && defaultOpen}
+    >
       <DrawerContent>
         <div className="mx-auto w-full max-w-sm">
           <DrawerHeader>
@@ -111,19 +104,13 @@ function InstallDrawer({
             <div>
               <p>This lets you get the best experience out of the platform</p>
 
-              <Button
-                onClick={() => {
-                  handler();
-                }}
-              >
-                Install App
-              </Button>
+              <Button onClick={() => handler()}>Install App</Button>
               <DrawerClose asChild>
                 <Button
                   variant="outline"
-                  onClick={() => {
-                    localStorage.setItem("install-drawer-shown", "displayed");
-                  }}
+                  onClick={() =>
+                    localStorage.setItem("install-drawer-shown", "displayed")
+                  }
                 >
                   Cancel
                 </Button>
