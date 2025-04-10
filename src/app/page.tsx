@@ -9,16 +9,12 @@ function InstallButton() {
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (e: Event) => {
-      alert("hello");
       e.preventDefault();
       setDeferredPrompt(e);
       setIsInstallable(true);
     };
 
-    window.addEventListener("beforeinstallprompt", (e) => {
-      console.log("🔥 Install prompt fired", e);
-      handleBeforeInstallPrompt(e);
-    });
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
 
     return () =>
       window.removeEventListener(
